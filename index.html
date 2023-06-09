@@ -16,7 +16,7 @@
             
             <h1 class="encabezado__titulo">
                 <a class="encabezado__titulo__link" href="index.html">
-                    <img class="encabezado__titulo__link__imagen" src="./titulo1.png" alt="imagen de titulo">
+                    <img class="encabezado__titulo__link__imagen" src="./Resources/titulo1.png" alt="imagen de titulo">
                 </a>
             </h1>
 
@@ -25,19 +25,17 @@
             </form>
             
             <div class="contenedor-boton">
-                <!-- <button class="boton-registrar"> -->
-                    <a class="link-registrar" href="registrarse.html">Registrarse</a>
-                <!-- </button> -->
+                <button class="link-registrar">Login</button>
             </div>
 
             <nav class="encabezado__barra-navegacion">
                 <ul>
-                    <li><a class="nav-link" href="Gabinetes/gabinete.html">Gabinetes</a></li>
-                    <li><a class="nav-link" href="PlacasDeVideo/placadevideo.html">Placas de Video</a></li>
-                    <li><a class="nav-link" href="Monitores/monitor.html">Monitores</a></li>
-                    <li><a class="nav-link" href="PlacaMadre/placamadre.html">PlacaMadre</a></li>
-                    <li><a class="nav-link" href="Procesadores/procesadores.html">Procesadores</a></li>
-                    <li><a class="nav-link" href="Perifericos/perifiricos.html">Perifericos</a></li>
+                    <li><a class="nav-link" href="./Categorias/Gabinetes/gabinete.html">Gabinetes</a></li>
+                    <li><a class="nav-link" href="./Categorias/Placas De Video/placadevideo.html">Placas De Video</a></li>
+                    <li><a class="nav-link" href="./Categorias/Monitores/monitor.html">Monitores</a></li>
+                    <li><a class="nav-link" href="./Categorias/Placa Madre/placamadre.html">Placa Madre</a></li>
+                    <li><a class="nav-link" href="./Categorias/Procesadores/procesadores.html">Procesadores</a></li>
+                    <li><a class="nav-link" href="./Categorias/Perifericos/perifiricos.html">Perifericos</a></li>
                 </ul>
             </nav>
 
@@ -52,7 +50,7 @@
                     </a>
                 </li>
                 <li class="contenedor-carrousel__lista-d__items">
-                    <a class="link-carrousel" href="PlacasDeVideo/placadevideo.html">
+                    <a class="link-carrousel" href="Placas De Video/placadevideo.html">
                         <img class="imagen-carrousel" src="./Resources/imagenes carrousel/imagen-carrousel-2.PNG" alt="">
                     </a>
                 </li>
@@ -62,7 +60,7 @@
                     </a>
                 </li>
                 <li class="contenedor-carrousel__lista-d__items">
-                    <a class="link-carrousel" href="PlacaMadre/placamadre.html">
+                    <a class="link-carrousel" href="Placa Madre/placamadre.html">
                         <img class="imagen-carrousel" src="./Resources/imagenes carrousel/imagen-carrousel-4.PNG" alt="">
                     </a>
                 </li>
@@ -112,7 +110,7 @@
             </div>
             
             <div class="contenedor-producto memoria">
-                <img class="imagen-producto" src="./Resources/imagenes productos/PlacaMadre/PlacaMadre1/PlacaMadre1-1.jpg" alt="memoria">
+                <img class="imagen-producto" src="./Resources/imagenes productos/Placa Madre/Placa Madre1/Placa Madre1-1.jpg" alt="memoria">
 
                 <div class="contenedor-producto__caracteristicas">
                     <h5 class="titulo-producto">
@@ -121,7 +119,7 @@
 
                     <!-- <p class="parrafo"></p> -->
                     <p class="precio">$56.400</p>
-                    <a class="link-producto" href="PlacaMadre/PlacaMadre1/placamadre1.html">Ver Mas</a>
+                    <a class="link-producto" href="Placa Madre/Placa Madre1/placamadre1.html">Ver Mas</a>
                 </div>
             </div>
 
@@ -184,6 +182,25 @@
             <!-- </div> -->
 
         </footer>
-    </div>    
+    </div> 
+    <script>
+        window.addEventListener("load", function(event) {
+            var email = localStorage.getItem("email");
+            document.getElementsByClassName("link-registrar")[0].innerHTML = email? "Logout" : "Login";
+        });
+
+        var loginButton = document.getElementsByClassName("link-registrar")[0];
+
+        loginButton.addEventListener("click", () => {
+            var email = localStorage.getItem("email");
+            if(email){
+                localStorage.removeItem("email");
+                location.reload();
+            }
+            else{
+                location = "./Registro/registrarse.html"; 
+            }
+        })
+    </script>   
 </body>    
 </html>
